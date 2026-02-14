@@ -40,7 +40,7 @@ for timestamp in date_range:
 
 df = pd.DataFrame({
     'datetime': date_range,
-     'load_kW': load
+     'power_kW': load
      }) # Sauvegarde du profil de charge dans un fichier CSV
 
 df.to_csv('profil_charge_tertiaire.csv', index=False)
