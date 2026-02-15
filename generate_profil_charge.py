@@ -43,6 +43,7 @@ df = pd.DataFrame({
      'power_kW': load
      }) # Sauvegarde du profil de charge dans un fichier CSV
 
+df ["datetime"] = pd.to_datetime(df ["datetime"], utc=True)
 df.to_csv('data/profil_charge_tertiaire.csv', index=False)
 
 print("Profil de charge généré et sauvegardé dans 'profil_charge_tertiaire.csv'")
