@@ -45,7 +45,7 @@ df = pd.DataFrame({
 
 df["datetime"] = pd.to_datetime(df ["datetime"], utc=True) # Convertit la colonne 'datetime' en un format de date/heure standardisé (UTC)
 df.set_index("datetime", inplace=True) # Met la colonne 'datetime' en index du DataFrame pour faciliter les opérations de fusion et d'analyse temporelle
-df.to_csv('data/profil_charge_tertiaire.csv', index = True) # Sauvegarde le DF dans un fichier CSV dans le dossier data
+df.to_csv("data/profil_charge_tertiaire.csv", index = True) # Sauvegarde le DF dans un fichier CSV dans le dossier data
 print("Profil de charge généré et sauvegardé dans 'profil_charge_tertiaire.csv'")
 
 
