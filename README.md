@@ -1,17 +1,28 @@
 # Project-Micro-Smart-Grid
 
-Le projet vise à simuler un micro réseaux intelligent avec stockage et EnR.
-Les objectifs sont :
-- Mettre en place un système d'analyse du réseau électrique
-- Intégrer des sources d'autoconsommation EnR et un système de stockage au réseau
-- être capable d'adapter et piloter les flux d'énergie en fonction des variations de consommation et de capacité de production
-- Prendre des décisions tecnico-économiques
+Le projet vise à simuler le micro-réseaux intelligent d'un bâtiment tertiaire ayant un système de stockage et un système de production EnR (PV).
 
-1. Le système global étudié sera un bâtiment tertiaire
-2. Le système de production EnR sera un système photovoltaïque
-3. Le système de stockage sera un système de batterie lithium-ion
-4. Le micro-grid du bâtiment sera rattaché au réseau HTA/BT
-5. Les études économiques seront faites en considération des tarifs HC/HP et des possibles injections sur le réseau
+Les objectifs sont de:
+- Récupérer dynamiquement des données de consommation énergétiques d'un bâtiment adapté au projet (Consommation Max = 500 kW)
+- Simuler le réseau électrique du bâtiment (via PandaPower, OpenDSS)
+- Etudier l'impact économique d'une implémentation de sources de production EnR (Photovoltaïque) et de système de stockage (lithium-ion)
+- Mettre en place un système d'analyse et de supervision du réseau électrique
+- Mettre en place un système de gestion dynamique et optimale des flux d'énergie en fonction des variations de consommation et de capacité de production
 
-Les résultats seront présentés sous formes de dashboards, avec une volonté de suivre une logique d'EMS et de SCADA (remontée de KPI énergétique, Courbes de puissance, analyse réseau)
+1. Les études économiques seront faites en considération des tarifs HC/HP et des possibles injections sur le réseau
+2. Le micro-grid du bâtiment sera rattaché au réseau HTA/BT
+3. Les résultats seront présentés sous formes de dashboards, différentes données devont être remontés (KPI énergétique, Courbes de puissance, analyse réseau)
 
+Logiciel utilisé :
+Python - VS Code = - simulation du réseau via PandaPower
+                   - simulation de la production PV via PVlib
+                   - simulation de l'utilisation de la batterie
+                   - Création des bases de données pour la consommation du bâtiment
+PowerBI = Création des dashboard de visualisation
+OpenDSS = simulation du réseau
+Node-RED = Création EMS virtuel, Supervision/ contrôle
+MQTT = Simulation Capteurs /compteurs, communication temps réel
+Grafana = Couche de supervision
+
+Anaconda ?
+Source = OpenData ENTSO-E, open-data françaises, dataset kaggle "building energy consumption"
