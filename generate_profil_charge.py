@@ -2,8 +2,8 @@ import pandas as pd # utilisé pour la manipulation de données, notamment avec 
 import numpy as np # utilisé pour les opérations numériques, ici pour le bruit aléatoire
 
 # Paramètres
-start_date = "2023-01-01"
-end_date = "2023-12-31"
+start_date = "2023-01-01 00:00:00"
+end_date = "2023-12-31 23:00:00"
 max_power = 500 # Puissance maximale que le bâtiment peut consommer, en kW
 
 # Création index horaire
@@ -43,8 +43,10 @@ df = pd.DataFrame({
      'power_kW': load # Deuxième colonne
      }) # Sauvegarde du profil de charge dans un DataFrame
 
-df ["datetime"] = pd.to_datetime(df ["datetime"], utc=True) # Convertit la colonne 'datetime' en un format de date/heure standardisé (UTC)
-df.to_csv('data/profil_charge_tertiaire.csv', index=False) # Sauvegarde le DF dans un fichier CSV dans le dossier data
-
+df["datetime"] = pd.to_datetime(df ["datetime"], utc=True) # Convertit la colonne 'datetime' en un format de date/heure standardisé (UTC)
+df.set_index("datetime", inplace=True) # Met la colonne 'datetime' en index du DataFrame pour faciliter les opérations de fusion et d'analyse temporelle
+df.to_csv('data/profil_charge_tertiaire.csv', index = True) # Sauvegarde le DF dans un fichier CSV dans le dossier data
 print("Profil de charge généré et sauvegardé dans 'profil_charge_tertiaire.csv'")
+
+
 
